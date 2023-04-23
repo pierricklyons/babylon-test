@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Engine, EngineOptions, Scene, SceneOptions, WindowsMotionController } from "@babylonjs/core";
+import { Engine, EngineOptions, Scene, SceneOptions } from "@babylonjs/core";
 
 interface SceneProps extends React.HTMLAttributes<HTMLCanvasElement> {
     antialias : boolean, 

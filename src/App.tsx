@@ -1,14 +1,15 @@
 import React from "react";
 import { FreeCamera, Vector3, HemisphericLight, MeshBuilder, Mesh, Scene } from "@babylonjs/core";
-import SceneComponent from "./babylon-components/SceneComponent"; // uses above component in same directory
+import SceneComponent from "./babylon-components/SceneComponent"; // import SceneComponent
 // import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
 import "./App.css";
 
 let box : Mesh | undefined;
+let ball : Mesh | undefined;
 
 const onSceneReady = (scene : Scene) => {
 	// This creates and positions a free camera (non-mesh)
-	const camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
+	const camera = new FreeCamera("camera1", new Vector3(0, 10, -10), scene);
 
 	// This targets the camera to scene origin
 	camera.setTarget(Vector3.Zero());
@@ -20,15 +21,16 @@ const onSceneReady = (scene : Scene) => {
 
 	// This creates a light, aiming 0,1,0 - to the sky (non-mesh)
 	const light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
-
 	// Default intensity is 1. Let's dim the light a small amount
-	light.intensity = 0.7;
+	light.intensity = .7;
 
 	// Our built-in 'box' shape.
 	box = MeshBuilder.CreateBox("box", { size: 2 }, scene);
-
 	// Move the box upward 1/2 its height
 	box.position.y = 1;
+
+	ball = MeshBuilder.CreateSphere("ball", {diameter: 2}, scene);
+	ball.position.y = 3.5;
 
 	// Our built-in 'ground' shape.
 	MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
