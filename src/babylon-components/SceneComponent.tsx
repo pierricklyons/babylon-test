@@ -1,14 +1,13 @@
 import { useEffect, useRef } from "react";
-import { Engine, EngineOptions, Scene, SceneOptions } from "@babylonjs/core";
+import { Engine, EngineOptions, Scene, SceneOptions, WindowsMotionController } from "@babylonjs/core";
 
-interface SceneProps {
+interface SceneProps extends React.HTMLAttributes<HTMLCanvasElement> {
     antialias : boolean, 
-    engineOptions : EngineOptions, 
-    adaptToDeviceRatio : boolean, 
-    sceneOptions : SceneOptions, 
+    engineOptions ?: EngineOptions, 
+    adaptToDeviceRatio ?: boolean, 
+    sceneOptions ?: SceneOptions, 
     onRender ?: (scene : Scene) => void, 
     onSceneReady : (scene : Scene) => void
-
 }
 
 export default ({ antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest } : SceneProps) => {
@@ -50,5 +49,5 @@ export default ({ antialias, engineOptions, adaptToDeviceRatio, sceneOptions, on
         };
     }, [antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady]);
 
-    return <canvas ref={reactCanvas} {...rest} />;
+    return <canvas ref={reactCanvas} width={window.innerWidth} height={window.innerHeight} {...rest} />;
 };
