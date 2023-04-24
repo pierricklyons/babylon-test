@@ -1,11 +1,11 @@
 // import React from "react";
 // import {BasicScene} from "./babylon-components/BasicScene"
 // import {StandardMaterialScene} from "./babylon-components/StandardMaterialScene"
-import {PBRMaterialScene} from "./babylon-components/PBRMaterialScene"
+import {ModelScene} from "./babylon-components/ModelScene"
 // import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
 import "./App.css";
 
-const scene = new PBRMaterialScene()
+const scene = new ModelScene()
 
 export default () => (
 	scene.createScene()

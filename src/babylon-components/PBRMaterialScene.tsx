@@ -1,5 +1,6 @@
 import SceneComponent from "./SceneComponent"; // import SceneComponent
 import { FreeCamera, Vector3, HemisphericLight, MeshBuilder, Mesh, Scene, StandardMaterial, Texture, CubeTexture } from "@babylonjs/core";
+import "@babylonjs/loaders";
 
 export class PBRMaterialScene {
     private createGroundMaterial(scene : Scene) : StandardMaterial {
