@@ -84,9 +84,9 @@ export class PBRMaterialScene {
 		this.ball.position.y = 1;
 		this.ball.material = this.createBallMaterial(scene);
 
-		scene.createDefaultEnvironment()
-		this.environment = CubeTexture.CreateFromPrefilteredData("/textures/env/environmentTexture.env", scene);
+		this.environment = CubeTexture.CreateFromPrefilteredData("/textures/env/environment.env", scene);
 		scene.environmentTexture = this.environment;
+		scene.createDefaultSkybox(this.environment, true);
 		
 	};
 	
